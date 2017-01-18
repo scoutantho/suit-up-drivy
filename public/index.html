@@ -1,33 +1,61 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,500,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://storage.googleapis.com/code.getmdl.io/1.0.1/material.teal-red.min.css" />
+    <link rel="stylesheet" href="D:\Annee 4\Semestre 08\Web application\suit-up-drivy\public\css.css" />
+
+    <script src="http://storage.googleapis.com/code.getmdl.io/1.0.1/material.min.js"></script>
     <title>CSS/HTML Workshop with Drivy</title>
-  </head>
-  <body>
-    <div id="car">
-      <input class="model" type="text" placeholder="Car model"/>
-      <input class="price-by-day" type="number" placeholder="Price by day"/>
-      <input class="price-by-km" type="number" placeholder="Price by km"/>
-    </div>
-    <div id="rental">
-      <input class="begin" type="date" placeholder="Rental begin date"/>
-      <input class="end" type="date" placeholder="Rental end date"/>
-      <input class="distance" type="number" placeholder="Distance in km"/>
-      <input class="option" type="checkbox" placeholder="Deductible option"/>
-    </div>
-    <button id="compute">Compute</button>
-    <div id="actors"></div>
-    <script id="template" type="x-tmpl-mustache">
-      {{#actors}}
-        <div class="actor">
-          <span>{{who}}</span>
-          <span>{{type}}</span>
-          <span>{{amount}}</span>
+</head>
+<body>
+    <div class="mdl-grid">
+        <div id="car" class="mdl-card mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-shadow--2dp opak">
+            <figure class="mdl-card__media car">
+                <img src="https://i1.wallpaperscraft.com/image/dodge_charger_srt_hellcat_2015_cars_road_97010_300x225.jpg" alt="" />
+            </figure>
+            <div class="mdl-card__title">
+                <h2 class="mdl-card__title-text"><b>The Car</b></h2> <!-- mettre en gras -->
+            </div>
+            <div class="mdl-card__supporting-text opak">
+                <input class="model" type="text" placeholder="Car model" />
+                <input class="price-by-day" type="number" placeholder="Price by day" />
+                <input class="price-by-km" type="number" placeholder="Price by km" />
+            </div>
         </div>
-      {{/actors}}
-    </script>
+        <div id="rental" class="mdl-card mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-shadow--2dp opak">
+            <figure class="mdl-card__media rent">
+                <img src="https://i0.wallpaperscraft.com/image/chevrolet_corvette_stingray_c7_95549_300x225.jpg" alt="" />
+            </figure>
+            <div class="mdl-card__title">
+                <h2 class="mdl-card__title-text"><b>Rental</b></h2> 
+            </div>
+            <div class="mdl-card__supporting-text opak">
+                <input class="begin" type="date" placeholder="Rental begin date" />
+                <input class="end" type="date" placeholder="Rental end date" />
+                <input class="distance" type="number" placeholder="Distance in km" />
+                <input class="option" type="checkbox" placeholder="Deductible option" />
+            </div>
+        </div>
+    </div>
+    <div class="divButton"><button id="compute" class="mdl-button mdl-button--raised mdr-button--colored buttonSend">Compute</button></div>
+
+    <div class="mdl-grid">
+        <div id="actors" class="mdl-card mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-shadow--2dp opak">
+            <script id="template" type="x-tmpl-mustache">
+                {{#actors}}
+                <div class="actor mdl-card__supporting-text resultText">
+                    <span>{{who}}</span>
+                    <span>{{type}}</span>
+                    <span>{{amount}}</span>
+                </div>
+                {{/actors}}
+            </script>
+        </div>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"></script>
     <script src="drivy.js"></script>
     <script src="index.js"></script>
-  </body>
+</body>
 </html>
